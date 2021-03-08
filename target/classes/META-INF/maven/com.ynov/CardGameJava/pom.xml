@@ -1,0 +1,75 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.ynov</groupId>
+  <artifactId>CardGameJava</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>Card Game Maven JavaProject</name>
+  <description>L’objectif de cette application est de créer un jeu de carte. Le projet sera implémenté en Java avec les Frameworks
+Maven et JUnit 5. L’affichage sera en mode console.
+Dans ce jeu, il existe trois types de cartes : les terrains, les guerriers et les soigneurs.
+Les terrains possèdent une couleur (parmi 5 : blanc('B'), bleu ('b'), noir ('n'), rouge ('r') et vert ('v').)
+Les guerriers possèdent un nom, un nombre de points de dégâts et un nombre de points de vie.
+Les soigneurs possèdent un nom, un nombre de points de soin et une explication sous forme de texte. Une attaque
+suffit à mettre hors de jeu un soigneur, ils n’ont donc pas de points de vie.
+De plus, chaque carte, indépendamment de son type, possède un coût. Celui d'un terrain est 0. Le guerrier vaut 50 et
+le soigneur 10.</description>
+
+<dependencies>
+	<dependency>
+		<groupId>org.slf4j</groupId>
+		<artifactId>slf4j-api</artifactId>
+		<version>1.7.30</version>
+	</dependency>
+	<dependency>
+		<groupId>org.slf4j</groupId>
+		<artifactId>slf4j-log4j12</artifactId>
+		<version>1.7.5</version>
+	</dependency>
+	<dependency>
+		<groupId>org.junit.jupiter</groupId>
+		<artifactId>junit-jupiter</artifactId>
+		<version>5.6.2</version>
+		<scope>test</scope>
+	</dependency>
+</dependencies>
+
+<build>
+	<sourceDirectory>src</sourceDirectory>
+	<plugins>
+		<plugin>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<version>3.8.1</version>
+			<configuration>
+				<release>11</release>
+			</configuration>
+		</plugin>
+		<plugin>
+			<artifactId>maven-assembly-plugin</artifactId>
+			<configuration>
+				<archive>
+					<manifest>
+						<mainClass>com.ynov.Play</mainClass>
+					</manifest>
+				</archive>
+				<descriptorRefs>
+					<descriptorRef>jar-with-dependencies</descriptorRef>
+				</descriptorRefs>
+			</configuration>
+			<executions>
+				<execution>
+					<id>make-assembly</id>
+					<phase>package</phase>
+					<goals>
+						<goal>single</goal>
+					</goals>
+				</execution>
+			</executions>
+		</plugin>
+	</plugins>
+</build>
+
+
+
+
+</project>
+
